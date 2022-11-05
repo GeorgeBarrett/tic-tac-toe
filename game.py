@@ -9,3 +9,18 @@ class TicTacToe:
 
     @staticmethod
     def print_board_nums():
+        number_board = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
+        for row in number_board:
+            print('| ' + ' | '.join(row) + ' |')
+    
+    def available_moves(self):
+        
+        #I commented this code out as I can condense it
+        # moves = []
+        # for (i, square) in enumerate(self.board):
+        #     if square == '':
+        #         moves.append(i)
+        
+        # return moves
+
+        return [i for i, square in enumerate(self.board) if square == ' ']
