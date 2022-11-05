@@ -18,10 +18,10 @@ class TicTacToe:
     
     def available_moves(self):
         
-        #I commented this code out as I can condense it
+        # I commented this code out as I can condense it
         # moves = []
         # for (i, square) in enumerate(self.board):
-        #     if square == '':
+        #     if square == ' ':
         #         moves.append(i)
         
         # return moves
@@ -36,7 +36,7 @@ class TicTacToe:
 
     def make_move(self, square, letter):
         if self.board[square] == ' ':
-            self.board[square] == letter
+            self.board[square] = letter
             if self.winner(square, letter):
                 self.current_winner = letter
             return True
@@ -44,14 +44,14 @@ class TicTacToe:
 
     def winner(self, square, letter):
         # check through a row
-        row_index = square // 3
-        row = self.board[row_index*3 : (row_index + 1) * 3]
+        row_ind = square // 3
+        row = self.board[row_ind*3 : (row_ind + 1) * 3]
         if all ([spot == letter for spot in row]):
             return True 
 
         # check through a column
-        column_index = square % 3
-        column = [self.board[column_index+i*3] for i in range(3)]
+        col_ind = square % 3
+        column = [self.board[col_ind+i*3] for i in range(3)]
         if all ([spot == letter for spot in column]):
             return True
 
@@ -84,7 +84,7 @@ def play(game, x_player, o_player, print_game=True):
             if print_game:
                 print(letter + f' Makes a move to square {square}')
                 game.print_board()
-                print('')
+                print(' ')
 
             if game.current_winner:
                 if print_game:

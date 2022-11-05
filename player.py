@@ -24,15 +24,15 @@ class HumanPlayer(Player):
 
     def get_move(self, game):
         valid_square = False
-        value = None
+        val = None
         while not valid_square:
             square = input(self.letter + '\'s turn. Input move (0-8):')
             try:
-                value = int(square)
-                if value not in game.available_moves():
+                val = int(square)
+                if val not in game.available_moves():
                     raise ValueError
                 valid_square = True
             except ValueError:
-                print('Invalid sqaure. Try again!')
+                print('Invalid square. Try again!')
         
-        return value
+        return val
